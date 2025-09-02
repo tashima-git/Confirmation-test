@@ -1,0 +1,183 @@
+/* =============================
+   見出し
+============================= */
+h2 {
+    color: #9a8a7c;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 1.5rem;
+}
+
+/* =============================
+   フォーム全体
+============================= */
+.contact-form {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+/* =============================
+   フォーム項目共通
+============================= */
+.contact-form__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* お名前の姓と名の間隔 */
+.contact-form__item input[name="last_name"] {
+    margin-right: 50px;
+}
+
+/* ラベル */
+.contact-form__label {
+    width: 150px;
+    margin-right: 10rem;
+    font-weight: bold;
+    color: #9a8a7c;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+/* 必須項目の米印 */
+.contact-form__label--required::after {
+    content: "※";
+    color: #ffa8a8;
+}
+
+/* 入力欄共通 */
+.contact-form__input,
+.contact-form__textarea {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #9a8a7c;
+    box-sizing: border-box;
+}
+
+/* =============================
+   電話番号専用
+============================= */
+.contact-form__item--tel {
+    display: flex;
+    align-items: center;
+}
+
+.contact-form__item--tel input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #9a8a7c;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.tel-divider {
+    margin: 0 5px;
+}
+
+/* =============================
+   テキストエリア専用：ラベル上揃え
+============================= */
+.contact-form__item--textarea {
+    align-items: flex-start;
+}
+
+.contact-form__item--textarea .contact-form__label {
+    margin-top: 0.5rem;
+}
+
+/* =============================
+   プルダウン（select）カスタム矢印
+============================= */
+.contact-form__select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.contact-form__select {
+    width: 100%;
+    padding: 0.5rem 3rem 0.5rem 0.5rem;
+    /* 右側に矢印分 + 余白スペース */
+    border: none;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #9a8a7c;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.contact-form__select-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #9a8a7c;
+    pointer-events: none;
+}
+
+/* =============================
+   ラジオボタン（性別）
+============================= */
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    color: #9a8a7c;
+    cursor: pointer;
+    margin-right: 25px;
+    /* ここで間隔を広げた */
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-label span::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #9a8a7c;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.radio-label input[type="radio"]:checked+span::before {
+    background-color: #9a8a7c;
+    border-color: #9a8a7c;
+}
+
+/* =============================
+   ボタン
+============================= */
+.contact-form__button {
+    background-color: #9a8a7c;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}

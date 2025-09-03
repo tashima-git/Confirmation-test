@@ -1,0 +1,63 @@
+/* =============================
+   サンクスページ共通
+============================= */
+.thanks-page {
+    position: relative;
+    max-width: 600px;
+    margin: 23rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+/* 背景文字 */
+.thanks-page::before {
+    content: "Thank you";
+    position: fixed;
+    /* 画面全体に配置 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw;
+    /* 画面幅に応じて自動縮小 */
+    color: #f9f8f7;
+    z-index: 0;
+    /* 本文より背面 */
+    white-space: nowrap;
+    pointer-events: none;
+    /* 背景文字に触れない */
+    text-align: center;
+}
+
+/* 見出し */
+.thanks-page h2 {
+    position: relative;
+    z-index: 1;
+    /* 背景より前面 */
+    color: #9a8a7c;
+    font-size: 24px;
+    margin-bottom: 2rem;
+}
+
+/* =============================
+   HOMEボタン
+============================= */
+.thanks-page .contact-form__button {
+    position: relative;
+    z-index: 1;
+    /* 背景より前面 */
+    background-color: #9a8a7c;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.thanks-page .contact-form__button:hover {
+    background-color: #837568;
+    /* ホバー時少し暗め */
+}

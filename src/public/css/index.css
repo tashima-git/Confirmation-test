@@ -1,14 +1,4 @@
 /* =============================
-   見出し
-============================= */
-h2 {
-    color: #9a8a7c;
-    text-align: center;
-    font-size: 35px;
-    margin-bottom: 1.5rem;
-}
-
-/* =============================
    フォーム全体
 ============================= */
 .contact-form {
@@ -24,19 +14,15 @@ h2 {
 ============================= */
 .contact-form__item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 1.5rem;
-}
-
-/* お名前の姓と名の間隔 */
-.contact-form__item input[name="last_name"] {
-    margin-right: 50px;
+    min-width: 0;
 }
 
 /* ラベル */
 .contact-form__label {
-    width: 150px;
-    margin-right: 10rem;
+    width: 250px;
+    margin-right: 1rem;
     font-weight: bold;
     color: #9a8a7c;
     font-size: 20px;
@@ -49,10 +35,24 @@ h2 {
     color: #ffa8a8;
 }
 
+/* 入力欄ラッパー（縦並び） */
+.contact-form__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.contact-form__input-wrapper input,
+.contact-form__input-wrapper textarea {
+    margin-bottom: 0.25rem;
+}
+
 /* 入力欄共通 */
 .contact-form__input,
 .contact-form__textarea {
     flex: 1;
+    min-width: 0;
     padding: 0.5rem;
     border: none;
     border-radius: 4px;
@@ -62,15 +62,98 @@ h2 {
     box-sizing: border-box;
 }
 
-/* =============================
-   電話番号専用
-============================= */
-.contact-form__item--tel {
-    display: flex;
-    align-items: center;
+/* placeholder */
+input::placeholder,
+textarea::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: #9a8a7c;
 }
 
-.contact-form__item--tel input {
+/* =============================
+   お名前（姓・名）横並び調整
+============================= */
+.contact-form__item--name {
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+    flex-wrap: nowrap;
+}
+
+.contact-form__item--name .contact-form__label {
+    width: 250px;
+    margin-right: 1rem;
+}
+
+.contact-form__item--name .name-inputs {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    /* ← これで他の項目と横幅揃える */
+}
+
+.contact-form__item--name .name-inputs .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* =============================
+   性別ラジオボタン横並び
+============================= */
+.contact-form__item--gender .gender-inputs {
+    display: flex;
+    gap: 20px;
+}
+
+/* ラジオボタン共通 */
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    color: #9a8a7c;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-label span::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #9a8a7c;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.radio-label input[type="radio"]:checked+span::before {
+    background-color: #9a8a7c;
+    border-color: #9a8a7c;
+}
+
+/* =============================
+   電話番号
+============================= */
+.contact-form__item--tel .tel-input-group {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    gap: 5px;
+}
+
+.contact-form__item--tel .tel-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tel-input-group input {
     flex: 1;
     padding: 0.5rem;
     border: none;
@@ -78,37 +161,32 @@ h2 {
     background-color: #f4f4f4;
     font-size: 14px;
     color: #9a8a7c;
-    box-sizing: border-box;
     text-align: center;
 }
 
 .tel-divider {
-    margin: 0 5px;
+    display: inline-block;
+    text-align: center;
 }
 
 /* =============================
-   テキストエリア専用：ラベル上揃え
+   テキストエリア
 ============================= */
 .contact-form__item--textarea {
     align-items: flex-start;
 }
 
-.contact-form__item--textarea .contact-form__label {
-    margin-top: 0.5rem;
-}
-
 /* =============================
-   プルダウン（select）カスタム矢印
+   プルダウン
 ============================= */
 .contact-form__select-wrapper {
     position: relative;
-    width: 100%;
+    width: 40%;
 }
 
 .contact-form__select {
     width: 100%;
     padding: 0.5rem 3rem 0.5rem 0.5rem;
-    /* 右側に矢印分 + 余白スペース */
     border: none;
     border-radius: 4px;
     background-color: #f4f4f4;
@@ -134,42 +212,6 @@ h2 {
 }
 
 /* =============================
-   ラジオボタン（性別）
-============================= */
-.radio-label {
-    display: inline-flex;
-    align-items: center;
-    font-size: 18px;
-    color: #9a8a7c;
-    cursor: pointer;
-    margin-right: 25px;
-    /* ここで間隔を広げた */
-}
-
-.radio-label input[type="radio"] {
-    display: none;
-}
-
-.radio-label span::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #9a8a7c;
-    border-radius: 50%;
-    margin-right: 8px;
-    vertical-align: middle;
-    background-color: #fff;
-    box-sizing: border-box;
-    transition: background-color 0.2s, border-color 0.2s;
-}
-
-.radio-label input[type="radio"]:checked+span::before {
-    background-color: #9a8a7c;
-    border-color: #9a8a7c;
-}
-
-/* =============================
    ボタン
 ============================= */
 .contact-form__button {
@@ -180,4 +222,30 @@ h2 {
     cursor: pointer;
     display: block;
     margin: 0 auto;
+    border-radius: 4px;
+}
+
+.contact-form__button:hover {
+    background-color: #837568;
+}
+
+/* =============================
+   エラーメッセージ
+============================= */
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    width: 100%;
+}
+
+/* =============================
+   Google自動補完の青背景防止
+============================= */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #f4f4f4 inset;
+    -webkit-text-fill-color: #9a8a7c;
+    transition: background-color 5000s ease-in-out 0s;
 }

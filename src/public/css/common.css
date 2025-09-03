@@ -6,11 +6,10 @@ body {
     font-size: 20px;
     line-height: 1.6;
     color: #9a8a7c;
-    /* 文字色 */
     background-color: #ffffff;
-    /* 背景は真っ白 */
     margin: 0;
     padding: 0;
+    font-family: "Noto Serif JP", serif;
 }
 
 /* リンク */
@@ -29,6 +28,13 @@ h1 {
     margin: 0 0 1rem 0;
     text-align: center;
     font-size: 40px;
+}
+
+h2 {
+    color: #9a8a7c;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 1.5rem;
 }
 
 /* 共通レイアウト */

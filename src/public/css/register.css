@@ -1,0 +1,106 @@
+/* 1. 全体リセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. body にフォント適用 */
+body.register-page {
+    background-color: #f0ebe5;
+}
+
+/* 共通ヘッダー */
+.header {
+    background-color: #f0ebe5;
+    padding: 20px 40px;
+    text-align: center;
+    position: relative;
+}
+
+.brand {
+    font-size: 2rem;
+    font-weight: normal;
+    color: #b5a693;
+    letter-spacing: 1px;
+}
+
+/* Register ページ専用 */
+.register-content,
+.register-card,
+.register-input,
+.register-btn,
+.register-group,
+.register-label,
+.register-error {
+    font-family: inherit;
+    /* body の 'Noto Serif JP' を継承 */
+}
+
+.register-content {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.register-title {
+    font-size: 1.8rem;
+    color: #a69080;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.register-card {
+    background: white;
+    padding: 50px 40px;
+    border: 1px solid #e0e0e0;
+}
+
+.register-group {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.register-label {
+    display: block;
+    margin-bottom: 8px;
+    color:#a69080;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.register-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    font-size: 1rem;
+}
+
+.register-input:focus {
+    outline: none;
+    border-color: #ddd;
+}
+
+.register-input::placeholder {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.register-btn {
+    width: 100px;
+    padding: 12px 0;
+    background-color: #b5a693;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.register-error {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: red;
+}

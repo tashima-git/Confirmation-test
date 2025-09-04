@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 
 class Contact extends Model
 {
@@ -22,4 +23,9 @@ class Contact extends Model
         'category_id',
         'detail',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

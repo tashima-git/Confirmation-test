@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\UserController;
+
 
 // フォーム入力画面
 Route::get('/', [ContactController::class, 'index'])->name('contact.form');
@@ -17,4 +19,17 @@ Route::get('/thanks', function () {
     return view('contacts.thanks');
 });
 
+// ユーザー登録ページ
+Route::get('/register', [UserController::class, 'create'])->name('register');
+Route::post('/register', [UserController::class, 'store'])->name('register.store');
 
+// ログインページ
+Route::get('/login', [UserController::class, 'loginForm'])->name('login');
+Route::post('/login', [UserController::class, 'login'])->name('login.attempt');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+
+// 管理画面
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
+    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+});

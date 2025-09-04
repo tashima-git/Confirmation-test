@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
     <link rel="stylesheet" href="{{ asset('css/thanks.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
     <!-- フォント変更 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +19,18 @@
 
 </head>
 
-<body>
+<body class="@yield('body-class')">
     <header>
         <h1>FashionablyLate</h1>
+
+        <!-- 登録ページでログインボタン -->
+        @if(request()->is('register'))
+            <a href="{{ route('login') }}" class="login-link">login</a>
+        <!-- ログインページで登録ボタン -->
+        @elseif(request()->is('login'))
+            <a href="{{ route('register') }}" class="login-link">register</a>
+        @endif
+
     </header>
 
     <main>

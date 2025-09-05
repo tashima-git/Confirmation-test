@@ -29,8 +29,13 @@
         <!-- ログインページで登録ボタン -->
         @elseif(request()->is('login'))
             <a href="{{ route('register') }}" class="login-link">register</a>
+        <!--  管理画面でログアウトボタン -->
+        @elseif(request()->is('admin*'))
+            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="logout-link">logout</button>
+            </form>
         @endif
-
     </header>
 
     <main>

@@ -22,36 +22,15 @@ class ContactController extends Controller
         return view('admin.contacts.show', compact('contact'));
     }
 
-    // 編集フォーム
-    public function edit($id)
-    {
-        $contact = Contact::findOrFail($id);
-        return view('admin.contacts.edit', compact('contact'));
-    }
-
-    // 更新処理
-    public function update(Request $request, $id)
-    {
-        $contact = Contact::findOrFail($id);
-
-        $request->validate([
-            'last_name' => 'required',
-            'first_name' => 'required',
-            'email' => 'required|email',
-            'detail' => 'required|max:120',
-        ]);
-
-        $contact->update($request->all());
-
-        return redirect()->route('admin.contacts.index')->with('success', 'お問い合わせを更新しました');
-    }
-
     // 削除処理
     public function destroy($id)
     {
-        $contact = Contact::findOrFail($id);
+        $contact = \App\Models\Contact::findOrFail($id);
         $contact->delete();
 
-        return redirect()->route('admin.contacts.index')->with('success', 'お問い合わせを削除しました');
+        return redirect()->route('admin.dashboard')
+                         ->with('success', 'お問い合わせを削除しました。');
     }
+
+
 }

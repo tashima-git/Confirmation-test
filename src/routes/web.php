@@ -32,4 +32,7 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 // 管理画面
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+    Route::delete('/contacts/{contact}', [App\Http\Controllers\Admin\ContactController::class, 'destroy'])->name('contacts.destroy');
+
 });

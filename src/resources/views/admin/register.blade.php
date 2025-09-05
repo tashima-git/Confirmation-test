@@ -9,7 +9,8 @@
 <div class="register-content">
     <h2 class="register-title">Register</h2>
     <div class="register-card">
-        <form method="POST" action="{{ route('register.store') }}">
+        <!-- メール形式エラー表示のためにnovalidate -->
+        <form method="POST" action="{{ route('register.store') }}" novalidate>
             @csrf
 
             <!-- お名前 -->

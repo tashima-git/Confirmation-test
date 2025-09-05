@@ -36,3 +36,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::delete('/contacts/{contact}', [App\Http\Controllers\Admin\ContactController::class, 'destroy'])->name('contacts.destroy');
 
 });
+
+// CSVエクスポート
+Route::get('/admin/export', [App\Http\Controllers\Admin\DashboardController::class, 'exportCsv'])
+    ->name('admin.export')
+    ->middleware('auth');

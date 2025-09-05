@@ -53,10 +53,7 @@ class ContactController extends Controller
             }
         });
 
-        // バリデーション失敗時
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
+        $validator->validate();
 
         // 入力値とカテゴリをビューに渡す
         $data = $request->all();

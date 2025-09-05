@@ -6,7 +6,8 @@
 
 <h2>Contact</h2>
 
-<form action="{{ url('/confirm') }}" method="post" class="contact-form">
+<!-- メール形式エラーメッセージを表示するためにnovalidate -->
+<form action="{{ url('/confirm') }}" method="post" class="contact-form" novalidate>
     @csrf
 
     <!-- お名前 -->
@@ -55,7 +56,9 @@
         <label class="contact-form__label contact-form__label--required">メールアドレス</label>
         <div class="contact-form__input-wrapper">
             <input type="email" name="email" value="{{ old('email') }}" class="contact-form__input" placeholder="例：test@example.com">
-            @error('email') <div class="error-message">{{ $message }}</div> @enderror
+            @error('email')
+                <div class="error-message">{{ $message }}</div>
+            @enderror
         </div>
     </div>
 

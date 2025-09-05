@@ -8,7 +8,8 @@
 <div class="register-content">
     <h2 class="register-title">Login</h2>
     <div class="register-card">
-        <form method="POST" action="{{ route('login.attempt') }}">
+        <!-- メール形式エラー表示するためにnovalidate -->
+        <form method="POST" action="{{ route('login.attempt') }}" novalidate>
             @csrf
 
             <!-- メールアドレス -->

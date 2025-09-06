@@ -9,10 +9,9 @@ Laravel と Docker を用いたシンプルなお問い合わせフォームで�
 ## 環境構築
 
 ### Dockerビルド
-<ol>
-  <li>git clone リンク
-  <li>docker-compse up -d --build
-</ol>
+1.[git clone リンク](https://github.com/tashima-git/Confirmation-test) <br>
+2.docker-compse up -d --build
+
 
 ※ MySQLは、OSによって起動しない場合があるので、それぞれのPCに合わせてdoxker-compose.ymlファイルを編集してください。
 
@@ -26,10 +25,13 @@ Laravel と Docker を用いたシンプルなお問い合わせフォームで�
 </ol>
 
 ## 使用技術
-<li>PHP 8.1.33
-<li>Laravel 10.48.29
-<li>MYSQL　8.0.26
+- PHP 8.1.33
+- Laravel 10.48.29
+- MYSQL　8.0.26
+
+## ER図
+![ER図](docs/er_diagram.png)
 
 ## URL
-<li>開発環境:http://localhost/
-<li>phpMyAdminhttp://localhost:8080/
+- 開発環境: [http://localhost/](http://localhost/)
+- phpMyAdmin: [http://localhost:8080/](http://localhost:8080/)

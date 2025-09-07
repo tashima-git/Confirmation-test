@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Response;
 
 class DashboardController extends Controller
 {
-    // 管理画面ダッシュボード表示
+    /* =============================
+       ダッシュボード表示
+       - お問い合わせ一覧の検索・絞り込み・ページネーション
+    ============================= */
     public function index(Request $request)
     {
         $query = Contact::query();
@@ -26,6 +29,7 @@ class DashboardController extends Controller
                   ->orWhere('email', $keyword);
             });
 
+            // 完全一致でヒットしない場合は部分一致
             if (!$query->exists()) {
                 $query = Contact::query()->where(function($q) use ($keyword) {
                     $q->where('last_name', 'like', "%{$keyword}%")
@@ -36,17 +40,17 @@ class DashboardController extends Controller
             }
         }
 
-        // 性別検索
+        // 性別フィルター
         if($request->filled('gender') && $request->gender !== 'all') {
             $query->where('gender', $request->gender);
         }
 
-        // お問い合わせ種類
+        // お問い合わせ種類フィルター
         if($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
         }
 
-        // 日付
+        // 日付フィルター
         if($request->filled('date')) {
             $query->whereDate('created_at', $request->date);
         }
@@ -59,12 +63,15 @@ class DashboardController extends Controller
         return view('admin.dashboard', compact('contacts', 'categories'));
     }
 
-    // CSVエクスポート
+    /* =============================
+       CSVエクスポート
+       - 現在の検索条件に応じてCSV生成
+    ============================= */
     public function exportCsv(Request $request)
     {
         $query = Contact::query();
 
-        // 名前／メールアドレス検索（部分一致のみでOK）
+        // 名前／メールアドレス検索（部分一致）
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
             $query->where(function($q) use ($keyword) {
@@ -75,17 +82,17 @@ class DashboardController extends Controller
             });
         }
 
-        // 性別検索
+        // 性別フィルター
         if($request->filled('gender') && $request->gender !== 'all') {
             $query->where('gender', $request->gender);
         }
 
-        // お問い合わせ種類
+        // お問い合わせ種類フィルター
         if($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
         }
 
-        // 日付
+        // 日付フィルター
         if($request->filled('date')) {
             $query->whereDate('created_at', $request->date);
         }
@@ -112,7 +119,7 @@ class DashboardController extends Controller
             ];
         }
 
-        // CSV出力
+        // CSVストリーム出力
         $callback = function() use ($csvHeader, $csvData) {
             $file = fopen('php://output', 'w');
             fputcsv($file, $csvHeader);

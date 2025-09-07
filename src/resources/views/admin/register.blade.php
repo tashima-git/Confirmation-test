@@ -9,11 +9,12 @@
 <div class="register-content">
     <h2 class="register-title">Register</h2>
     <div class="register-card">
-        <!-- メール形式エラー表示のためにnovalidate -->
+        <!-- 登録フォーム -->
+        <!-- novalidate：ブラウザのデフォルトバリデーションを無効化 -->
         <form method="POST" action="{{ route('register.store') }}" novalidate>
             @csrf
 
-            <!-- お名前 -->
+            <!-- お名前入力 -->
             <div class="register-group">
                 <label class="register-label" for="name">お名前</label>
                 <input type="text" id="name" name="name" class="register-input"
@@ -23,7 +24,7 @@
                 @enderror
             </div>
 
-            <!-- メールアドレス -->
+            <!-- メールアドレス入力 -->
             <div class="register-group">
                 <label class="register-label" for="email">メールアドレス</label>
                 <input type="email" id="email" name="email" class="register-input"
@@ -33,7 +34,7 @@
                 @enderror
             </div>
 
-            <!-- パスワード -->
+            <!-- パスワード入力 -->
             <div class="register-group">
                 <label class="register-label" for="password">パスワード</label>
                 <input type="password" id="password" name="password" class="register-input"
@@ -43,8 +44,10 @@
                 @enderror
             </div>
 
+            <!-- 登録ボタン -->
             <button type="submit" class="register-btn">登録</button>
         </form>
     </div>
 </div>
+
 @endsection

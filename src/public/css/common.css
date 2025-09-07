@@ -1,5 +1,5 @@
 /* =============================
-    全体のリセット・ベース
+   全体ベース・リセット
 ============================= */
 body {
     font-family: 'Noto Serif JP', serif;
@@ -11,7 +11,9 @@ body {
     padding: 0;
 }
 
-/* リンク */
+/* =============================
+   リンク共通
+============================= */
 a {
     color: #9a8a7c;
     text-decoration: none;
@@ -21,7 +23,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 見出し */
+/* =============================
+   見出し
+============================= */
 h1 {
     color: #9a8a7c;
     margin: 0 0 1rem 0;
@@ -36,7 +40,9 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-/* 共通レイアウト */
+/* =============================
+   共通レイアウト
+============================= */
 header {
     align-items: center;
     justify-content: center;
@@ -50,7 +56,9 @@ main {
     padding: 2rem;
 }
 
-/* ボタン共通 */
+/* =============================
+   ボタン共通
+============================= */
 button {
     cursor: pointer;
     font-size: 1rem;
@@ -61,7 +69,9 @@ button:focus {
     outline: none;
 }
 
-/* フォーム共通 */
+/* =============================
+   フォーム共通
+============================= */
 input,
 select,
 textarea {
@@ -70,6 +80,9 @@ textarea {
     color: #9a8a7c;
 }
 
+/* =============================
+   ログイン / ログアウトリンク
+============================= */
 .login-link,
 .logout-link {
     position: absolute;
@@ -80,13 +93,14 @@ textarea {
     background-color: #f6f6f6;
     color: #d9c6b5;
     border: 1px solid #d9c6b5;
-
 }
 
-.login-link{
+/* ログインリンク */
+.login-link {
     padding: 3px 25px;
 }
 
-.logout-link{
+/* ログアウトリンク */
+.logout-link {
     padding: 7px 15px;
 }

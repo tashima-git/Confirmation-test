@@ -1,12 +1,11 @@
-/* =============================
-   確認画面テーブル
-============================= */
+/* 確認画面テーブル全体 */
 .contact-confirm-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 2rem;
 }
 
+/* テーブルセル共通 */
 .contact-confirm-table th,
 .contact-confirm-table td {
     border: 1px solid #e4e3e2;
@@ -14,21 +13,21 @@
     text-align: left;
 }
 
+/* テーブルヘッダー */
 .contact-confirm-table th {
     background-color: #9a8a7c;
     color: #ffffff;
     width: 250px;
 }
 
+/* テーブル内容 */
 .contact-confirm-table td {
     background-color: #ffffff;
     color: #837568;
     font-size: 16px;
 }
 
-/* =============================
-   ボタン共通
-============================= */
+/* ボタン共通 */
 .contact-form__button,
 .contact-form__button--link {
     font-size: 16px;
@@ -38,9 +37,7 @@
     padding: 0.7rem 1.5rem;
 }
 
-/* =============================
-   送信ボタン
-============================= */
+/* 送信ボタン */
 .contact-form__button {
     background-color: #9a8a7c;
     color: #fff;
@@ -49,12 +46,9 @@
 
 .contact-form__button:hover {
     background-color: #9a8a7c;
-    /* ホバーで色は変えない */
 }
 
-/* =============================
-   修正ボタン（リンク風）
-============================= */
+/* 修正ボタン（リンク風） */
 .contact-form__button--link {
     background: none;
     color: #82756a;
@@ -74,14 +68,11 @@
     text-decoration: underline;
 }
 
-/* =============================
-   ボタンの配置
-============================= */
+/* ボタン配置 */
 .contact-form__buttons {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    /* ボタン同士の距離を近く */
     margin-top: 1rem;
     padding: 20px 0;
 }

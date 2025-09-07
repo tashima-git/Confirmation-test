@@ -9,16 +9,23 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    /* =============================
+       ユーザー登録フォーム表示
+    ============================= */
     public function create()
     {
-        return view('admin.register');
+        return view('admin.register'); // ユーザー登録画面
     }
 
+    /* =============================
+       ユーザー登録処理
+    ============================= */
     public function store(Request $request)
     {
+        // バリデーション
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email', // 重複防止
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
         ], [
             'name.required' => 'お名前を入力してください',
@@ -29,24 +36,31 @@ class UserController extends Controller
             'password.min' => 'パスワードは8文字以上で入力してください',
         ]);
 
-
-        // ユーザー作成（パスワードを暗号化）
+        // ユーザー作成（パスワードはハッシュ化）
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        // 登録完了メッセージ付きでダッシュボードへ
         return redirect()->route('admin.dashboard')->with('success', 'ユーザー登録が完了しました');
     }
 
+    /* =============================
+       ログインフォーム表示
+    ============================= */
     public function loginForm()
     {
-        return view('admin.login');
+        return view('admin.login'); // ログイン画面
     }
 
+    /* =============================
+       ログイン処理
+    ============================= */
     public function login(Request $request)
     {
+        // バリデーション
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -56,17 +70,21 @@ class UserController extends Controller
             'password.required' => 'パスワードを入力してください',
         ]);
 
-
+        // 認証
         if (auth()->attempt($request->only('email','password'))) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.dashboard'); // 認証成功
         }
 
+        // 認証失敗
         return back()->withErrors(['email'=>'メールアドレスまたはパスワードが間違っています']);
     }
 
+    /* =============================
+       ログアウト処理
+    ============================= */
     public function logout()
     {
-        auth()->logout();
-        return redirect()->route('login');
+        auth()->logout(); // セッション破棄
+        return redirect()->route('login'); // ログイン画面へ
     }
 }

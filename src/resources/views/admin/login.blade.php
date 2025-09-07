@@ -8,11 +8,12 @@
 <div class="register-content">
     <h2 class="register-title">Login</h2>
     <div class="register-card">
-        <!-- メール形式エラー表示するためにnovalidate -->
+        <!-- ログインフォーム -->
+        <!-- novalidate：ブラウザのデフォルトバリデーションを無効化 -->
         <form method="POST" action="{{ route('login.attempt') }}" novalidate>
             @csrf
 
-            <!-- メールアドレス -->
+            <!-- メールアドレス入力 -->
             <div class="register-group">
                 <label class="register-label" for="email">メールアドレス</label>
                 <input type="email" id="email" name="email" class="register-input"
@@ -22,7 +23,7 @@
                 @enderror
             </div>
 
-            <!-- パスワード -->
+            <!-- パスワード入力 -->
             <div class="register-group">
                 <label class="register-label" for="password">パスワード</label>
                 <input type="password" id="password" name="password" class="register-input"
@@ -32,6 +33,7 @@
                 @enderror
             </div>
 
+            <!-- ログインボタン -->
             <button type="submit" class="register-btn">ログイン</button>
         </form>
     </div>

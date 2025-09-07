@@ -1,6 +1,4 @@
-/* =============================
-   フォーム全体
-============================= */
+/* フォーム全体 */
 .contact-form {
     max-width: 1000px;
     margin: 0 auto;
@@ -9,9 +7,7 @@
     border-radius: 8px;
 }
 
-/* =============================
-   フォーム項目共通
-============================= */
+/* フォーム項目共通 */
 .contact-form__item {
     display: flex;
     align-items: flex-start;
@@ -29,13 +25,13 @@
     white-space: nowrap;
 }
 
-/* 必須項目の米印 */
+/* 必須項目のマーク */
 .contact-form__label--required::after {
     content: "※";
     color: #ffa8a8;
 }
 
-/* 入力欄ラッパー（縦並び） */
+/* 入力欄ラッパー */
 .contact-form__input-wrapper {
     display: flex;
     flex-direction: column;
@@ -63,7 +59,7 @@
     font-weight: 700;
 }
 
-/* placeholder */
+/* プレースホルダー */
 input::placeholder,
 textarea::placeholder {
     font-weight: bold;
@@ -71,9 +67,7 @@ textarea::placeholder {
     color: #9a8a7c;
 }
 
-/* =============================
-   お名前（姓・名）横並び調整
-============================= */
+/* お名前入力（姓・名） */
 .contact-form__item--name {
     display: flex;
     align-items: flex-start;
@@ -81,27 +75,19 @@ textarea::placeholder {
     flex-wrap: nowrap;
 }
 
-.contact-form__item--name .contact-form__label {
-    width: 250px;
-    margin-right: 1rem;
-}
-
 .contact-form__item--name .name-inputs {
     display: flex;
     gap: 15px;
     flex: 1;
-    /* ← これで他の項目と横幅揃える */
 }
 
-.contact-form__item--name .name-inputs .input-wrapper {
+.contact-form__item--name .input-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-/* =============================
-   性別ラジオボタン横並び
-============================= */
+/* 性別入力 */
 .contact-form__item--gender .gender-inputs {
     display: flex;
     gap: 20px;
@@ -138,46 +124,22 @@ textarea::placeholder {
     border-color: #9a8a7c;
 }
 
-/* =============================
-   電話番号（他フォームと揃える）
-============================= */
-.contact-form__item--tel {
-    display: flex;
-    /* ラベル + 入力塊 を横並び */
-    align-items: flex-start;
-    /* 上揃え */
-    margin-bottom: 1.5rem;
-    min-width: 0;
-}
-
-.contact-form__item--tel .contact-form__label {
-    width: 250px;
-    /* 他ラベルと同じ幅 */
-    margin-right: 1rem;
-    /* ラベルと入力の間隔 */
-    font-weight: bold;
-    white-space: nowrap;
-}
-
+/* 電話番号入力 */
 .contact-form__item--tel .tel-input-wrapper {
     display: flex;
     flex-direction: column;
-    /* エラーなどは縦に表示 */
     flex: 1;
-    /* 残り幅を入力塊に */
     min-width: 0;
 }
 
 .contact-form__item--tel .tel-input-group {
     display: flex;
     gap: 5px;
-    /* 入力間の隙間 */
     flex: 1;
 }
 
 .contact-form__item--tel .tel-input-group input {
     flex: 1;
-    /* 3つの入力を均等幅 */
     min-width: 0;
     padding: 0.5rem;
     border: none;
@@ -189,16 +151,12 @@ textarea::placeholder {
     box-sizing: border-box;
 }
 
-/* =============================
-   テキストエリア
-============================= */
+/* テキストエリア項目 */
 .contact-form__item--textarea {
     align-items: flex-start;
 }
 
-/* =============================
-   プルダウン
-============================= */
+/* プルダウン */
 .contact-form__select-wrapper {
     position: relative;
     width: 40%;
@@ -231,9 +189,7 @@ textarea::placeholder {
     pointer-events: none;
 }
 
-/* =============================
-   ボタン
-============================= */
+/* ボタン */
 .contact-form__button {
     background-color: #82756a;
     color: #fff;
@@ -248,9 +204,7 @@ textarea::placeholder {
     background-color: #837568;
 }
 
-/* =============================
-   エラーメッセージ
-============================= */
+/* エラーメッセージ */
 .error-message {
     color: red;
     font-size: 0.875rem;
@@ -258,9 +212,7 @@ textarea::placeholder {
     width: 100%;
 }
 
-/* =============================
-   Google自動補完の青背景防止
-============================= */
+/* Google自動補完の青背景防止 */
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {

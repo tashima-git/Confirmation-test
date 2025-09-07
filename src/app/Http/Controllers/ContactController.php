@@ -9,14 +9,18 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
-    // フォーム表示
+    /* =============================
+       フォーム表示
+    ============================= */
     public function index()
     {
-        $categories = Category::all();
-        return view('contacts.index', compact('categories'));
+        $categories = Category::all(); // カテゴリ一覧取得
+        return view('contacts.index', compact('categories')); // ビューに渡す
     }
 
-    // 確認画面
+    /* =============================
+       確認画面表示
+    ============================= */
     public function confirm(Request $request)
     {
         // バリデーション設定
@@ -46,14 +50,14 @@ class ContactController extends Controller
             'tel3.required'        => '電話番号を正しく入力してください',
         ]);
 
-        // 電話番号まとめてチェック → tel キーにエラーをまとめる
+        // 電話番号をまとめてチェック
         $validator->after(function ($validator) use ($request) {
             if (empty($request->tel1) || empty($request->tel2) || empty($request->tel3)) {
                 $validator->errors()->add('tel', '電話番号を正しく入力してください');
             }
         });
 
-        $validator->validate();
+        $validator->validate(); // バリデーション実行
 
         // 入力値とカテゴリをビューに渡す
         $data = $request->all();
@@ -61,11 +65,13 @@ class ContactController extends Controller
         return view('contacts.confirm', compact('data', 'categories'));
     }
 
-    // データ保存＆サンクスページ
+    /* =============================
+       データ保存 & サンクスページ
+    ============================= */
     public function send(Request $request)
     {
         if ($request->input('action') === 'back') {
-            // 「修正する」が押された場合
+            // 「修正する」が押された場合、入力画面に戻す
             return redirect()
                 ->route('contact.form')
                 ->withInput();
@@ -86,6 +92,7 @@ class ContactController extends Controller
             'detail'      => $request->detail,
         ]);
 
+        // サンクスページへ
         return redirect('/thanks');
     }
 }

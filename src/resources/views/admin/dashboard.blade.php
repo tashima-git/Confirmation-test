@@ -9,10 +9,10 @@
     <!-- 検索フォーム -->
     <form method="GET" action="{{ route('admin.dashboard') }}" class="admin-search-form">
 
-        <!-- 名前／メールアドレス  -->
+        <!-- 名前／メールアドレス検索 -->
         <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword') }}">
 
-        <!-- 性別 -->
+        <!-- 性別フィルター -->
         <select name="gender">
             <option value="">性別</option>
             <option value="all" {{ request('gender') == 'all' ? 'selected' : '' }}>全て</option>
@@ -21,7 +21,7 @@
             <option value="3" {{ request('gender')=='3'?'selected':'' }}>その他</option>
         </select>
 
-        <!-- お問い合わせ種類 -->
+        <!-- お問い合わせ種類フィルター -->
         <select name="category_id">
             <option value="">お問い合わせの種類</option>
             @foreach($categories as $category)
@@ -31,22 +31,26 @@
             @endforeach
         </select>
 
-        <!-- 日付 -->
+        <!-- 日付フィルター -->
         <input type="date" name="date" value="{{ request('date') }}">
 
+        <!-- 検索ボタン -->
         <button type="submit">検索</button>
+        <!-- リセットリンク -->
         <a href="{{ route('admin.dashboard') }}">リセット</a>
     </form>
 
-    <!-- エクスポート -->
+    <!-- エクスポートフォーム -->
     <div class="admin-actions">
         <form method="GET" action="{{ route('admin.export') }}">
             @csrf
+            <!-- フィルター条件を隠しフィールドで送信 -->
             <input type="hidden" name="keyword" value="{{ request('keyword') }}">
             <input type="hidden" name="gender" value="{{ request('gender') }}">
             <input type="hidden" name="category_id" value="{{ request('category_id') }}">
             <input type="hidden" name="date" value="{{ request('date') }}">
 
+            <!-- エクスポートボタン -->
             <button type="submit" class="export-btn">エクスポート</button>
         </form>
 
@@ -59,7 +63,7 @@
                 <a href="{{ $contacts->previousPageUrl() }}" class="prev">&lt;</a>
             @endif
 
-            <!-- ページ番号 -->
+            <!-- ページ番号表示 -->
             @php
                 $start = max(1, $contacts->currentPage() - 2);
                 $end = min($contacts->lastPage(), $contacts->currentPage() + 2);
@@ -88,7 +92,7 @@
         </ul>
     </div>
 
-    <!-- お問い合わせ一覧 -->
+    <!-- お問い合わせ一覧テーブル -->
     <table class="admin-table">
         <thead>
             <tr>
@@ -107,14 +111,17 @@
                 <td>{{ $contact->email }}</td>
                 <td>{{ $contact->category->content ?? '' }}</td>
                 <td>
+                    <!-- 詳細モーダル表示ボタン -->
                     <a href="#modal-{{ $contact->id }}" class="detail-btn">詳細</a>
                 </td>
             </tr>
 
+            <!-- 詳細モーダル -->
             <div id="modal-{{ $contact->id }}" class="admin-modal">
                 <div class="admin-modal-content">
                     <a href="#!" class="admin-modal-close">&times;</a>
 
+                    <!-- モーダル内の各項目表示 -->
                     <div class="modal-row">
                         <span class="label">お名前</span>
                         <span class="value">{{ $contact->last_name }} {{ $contact->first_name }}</span>

@@ -6,11 +6,12 @@
 
 <h2>Contact</h2>
 
-<!-- メール形式エラーメッセージを表示するためにnovalidate -->
+<!-- フォーム：確認ページへ送信 -->
+<!-- novalidate：ブラウザのデフォルトバリデーションを無効化 -->
 <form action="{{ url('/confirm') }}" method="post" class="contact-form" novalidate>
     @csrf
 
-    <!-- お名前 -->
+    <!-- お名前入力 -->
     <div class="contact-form__item contact-form__item--name">
         <label class="contact-form__label contact-form__label--required">お名前</label>
         <div class="name-inputs">
@@ -29,7 +30,7 @@
         </div>
     </div>
 
-    <!-- 性別 -->
+    <!-- 性別選択 -->
     <div class="contact-form__item contact-form__item--gender">
         <label class="contact-form__label contact-form__label--required">性別</label>
         <div class="contact-form__input-wrapper">
@@ -62,7 +63,7 @@
         </div>
     </div>
 
-    <!-- 電話番号 -->
+    <!-- 電話番号入力 -->
     <div class="contact-form__item contact-form__item--tel">
         <label class="contact-form__label contact-form__label--required">電話番号</label>
         <div class="tel-input-wrapper">
@@ -79,7 +80,7 @@
         </div>
     </div>
 
-    <!-- 住所 -->
+    <!-- 住所入力 -->
     <div class="contact-form__item">
         <label class="contact-form__label contact-form__label--required">住所</label>
         <div class="contact-form__input-wrapper">
@@ -88,7 +89,7 @@
         </div>
     </div>
 
-    <!-- 建物名 -->
+    <!-- 建物名入力（任意） -->
     <div class="contact-form__item">
         <label class="contact-form__label">建物名</label>
         <div class="contact-form__input-wrapper">
@@ -96,7 +97,7 @@
         </div>
     </div>
 
-    <!-- お問い合わせの種類 -->
+    <!-- お問い合わせ種類選択 -->
     <div class="contact-form__item">
         <label class="contact-form__label contact-form__label--required">お問い合わせの種類</label>
         <div class="contact-form__input-wrapper">
@@ -121,7 +122,7 @@
         </div>
     </div>
 
-    <!-- 送信ボタン -->
+    <!-- 確認画面へ送信ボタン -->
     <div class="contact-form__item contact-form__item--button">
         <div class="contact-form__input-wrapper">
             <button type="submit" class="contact-form__button">確認画面</button>

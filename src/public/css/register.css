@@ -1,11 +1,11 @@
-/* 1. 全体リセット */
+/* 全体リセット */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 2. body にフォント適用 */
+/* body背景色（Registerページ用） */
 body.register-page {
     background-color: #f0ebe5;
 }
@@ -25,7 +25,7 @@ body.register-page {
     letter-spacing: 1px;
 }
 
-/* Register ページ専用 */
+/* Registerページ全体 */
 .register-content,
 .register-card,
 .register-input,
@@ -34,9 +34,9 @@ body.register-page {
 .register-label,
 .register-error {
     font-family: inherit;
-    /* body の 'Noto Serif JP' を継承 */
 }
 
+/* コンテンツ全体 */
 .register-content {
     max-width: 600px;
     margin: 80px auto;
@@ -44,6 +44,7 @@ body.register-page {
     text-align: center;
 }
 
+/* ページ見出し */
 .register-title {
     font-size: 1.8rem;
     color: #a69080;
@@ -51,25 +52,29 @@ body.register-page {
     font-weight: 700;
 }
 
+/* 入力カード */
 .register-card {
     background: white;
     padding: 50px 40px;
     border: 1px solid #e0e0e0;
 }
 
+/* 入力グループ */
 .register-group {
     margin-bottom: 30px;
     text-align: left;
 }
 
+/* ラベル */
 .register-label {
     display: block;
     margin-bottom: 8px;
-    color:#a69080;
+    color: #a69080;
     font-size: 1.5rem;
     font-weight: 700;
 }
 
+/* 入力欄 */
 .register-input {
     width: 100%;
     padding: 12px 15px;
@@ -88,6 +93,7 @@ body.register-page {
     font-size: 0.9rem;
 }
 
+/* 登録ボタン */
 .register-btn {
     width: 100px;
     padding: 12px 0;
@@ -99,6 +105,7 @@ body.register-page {
     margin-top: 20px;
 }
 
+/* エラーメッセージ */
 .register-error {
     margin-top: 5px;
     font-size: 0.85rem;

@@ -9,7 +9,7 @@ Laravel と Docker を用いたシンプルなお問い合わせフォームで�
 ## 環境構築
 
 ### Dockerビルド
-1.[git clone リンク](https://github.com/tashima-git/Confirmation-test) <br>
+1.[git clone リンク](https://github.com/tashima-git/Confirmation-test.git) <br>
 2.docker-compose up -d --build
 
 

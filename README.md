@@ -13,11 +13,11 @@ Laravel と Docker を用いたシンプルなお問い合わせフォームで�
 2.docker-compse up -d --build
 
 
-※ MySQLは、OSによって起動しない場合があるので、それぞれのPCに合わせてdoxker-compose.ymlファイルを編集してください。
+※ MySQLは、OSによって起動しない場合があるので、それぞれのPCに合わせてdocker-compose.ymlファイルを編集してください。
 
 ### Laravel環境構築
 <ol>
-  <li>doxker-compose exec php bash
+  <li>docker-compose exec php bash
   <li>composer install
   <li>.env.exampleファイルから.envを作成し、環境変数を変更
   <li>php artisan migrate
@@ -35,3 +35,9 @@ Laravel と Docker を用いたシンプルなお問い合わせフォームで�
 ## URL
 - 開発環境: [http://localhost/](http://localhost/)
 - phpMyAdmin: [http://localhost:8080/](http://localhost:8080/)
+
+##追記
+- メールアドレス形式のエラーメッセージを表示するために標準搭載のバリデーションは動作しないようにしてあります。
+- 管理者画面で名前メールアドレス検索をかける際の完全一致と部分一致の搭載について。 <br>
+　→イメージ画像や要件項目で切り替えボタン等が見つけられなかったので完全一致のデータがあればそのデータだけを表示し、完全一致データがなければ部分一致で検索するようにしました。
+- 要件に詳細情報はなかったのですが、セキュリティの観点からユーザー登録の際パスワードは8文字以上入力するよう設定しエラーメッセージを表示するようにしています。

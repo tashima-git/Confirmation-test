@@ -260,10 +260,6 @@
     cursor: pointer;
 }
 
-.delete-btn:hover {
-    background-color: #c9302c;
-}
-
 /* ページネーション全体 */
 .pagination {
     display: flex;

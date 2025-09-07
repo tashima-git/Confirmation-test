@@ -30,7 +30,7 @@ Laravel と Docker を用いたシンプルなお問い合わせフォームで�
 - MYSQL　8.0.26
 
 ## ER図
-![ER図](docs/er_diagram.png)
+![ER図](docs/er-diagram.png)
 
 ## URL
 - 開発環境: [http://localhost/](http://localhost/)
